@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XpoGraphQL", "XpoGraphQL\XpoGraphQL.csproj", "{E869F4D5-473C-4899-AEC3-6FCFF6D3E72D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XpoOrm", "XpoOrm\XpoOrm.csproj", "{47686316-1AD9-4254-811F-8A16DACD03AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E869F4D5-473C-4899-AEC3-6FCFF6D3E72D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E869F4D5-473C-4899-AEC3-6FCFF6D3E72D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E869F4D5-473C-4899-AEC3-6FCFF6D3E72D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E869F4D5-473C-4899-AEC3-6FCFF6D3E72D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47686316-1AD9-4254-811F-8A16DACD03AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47686316-1AD9-4254-811F-8A16DACD03AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47686316-1AD9-4254-811F-8A16DACD03AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47686316-1AD9-4254-811F-8A16DACD03AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8FEB0997-822E-4399-9E26-EAB305D618F3}
+	EndGlobalSection
+EndGlobal

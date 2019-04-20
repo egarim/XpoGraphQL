@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using GraphQL;
@@ -21,10 +22,22 @@ namespace XpoGraphQL
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<ICustomerService, CustomerService>();
-            services.AddSingleton<CustomerType>();
-            services.AddSingleton<CustomerQuery>();
-            services.AddSingleton<CustomerSchema>();
+
+
+            services.AddSingleton<ICategoryService, CategoryService>();
+            services.AddSingleton<CategoryType>();
+            services.AddSingleton<CategoryQuery>();
+            services.AddSingleton<CategorySchema>();
+
+
+            services.AddSingleton<IProductService, ProductService>();
+            services.AddSingleton<ProductType>();
+            services.AddSingleton<ProductsQuery>();
+            services.AddSingleton<ProductSchema>();
+
+
+          
+
 
             services.AddSingleton<IDependencyResolver>(
                 c => new FuncDependencyResolver(type => c.GetRequiredService(type)));
@@ -41,28 +54,43 @@ namespace XpoGraphQL
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
+            try
             {
-                app.UseDeveloperExceptionPage();
+                if (env.IsDevelopment())
+                {
+                    app.UseDeveloperExceptionPage();
+                }
+                app.UseDefaultFiles();
+                app.UseStaticFiles();
+
+                app.UseWebSockets();
+
+                //app.UseGraphQLWebSockets<CustomerType>();
+                //app.UseGraphQLHttp<CustomerSchema>();
+
+
+                // use graphiQL middleware at default url /graphiql
+
+                app.UseGraphQLWebSockets<ProductSchema>("/graphql");
+                app.UseGraphQL<ProductSchema>();
+
+
+                //app.UseGraphQLWebSockets<CategorySchema>("/graphql");
+                //app.UseGraphQL<CategorySchema>(@"/graphql/Category");
+
             }
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
+            catch (Exception exception)
+            {
 
-            app.UseWebSockets();
+                Debug.WriteLine(string.Format("{0}:{1}", "exception.Message", exception.Message));
+                if (exception.InnerException != null)
+                {
+                    Debug.WriteLine(string.Format("{0}:{1}", "exception.InnerException.Message", exception.InnerException.Message));
 
-            //app.UseGraphQLWebSockets<CustomerType>();
-            //app.UseGraphQLHttp<CustomerSchema>();
-
+                }
+                Debug.WriteLine(string.Format("{0}:{1}", " exception.StackTrace", exception.StackTrace));
+            }
            
-
-            // use websocket middleware for ChatSchema at path /graphql
-            app.UseGraphQLWebSockets<CustomerSchema>("/graphql");
-
-
-
-            // use graphiQL middleware at default url /graphiql
-            app.UseGraphQL<CustomerSchema>();
-
             //app.Run(async (context) =>
             //{
             //    await context.Response.WriteAsync("Hello World!");

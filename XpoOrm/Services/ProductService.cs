@@ -8,31 +8,31 @@ using XpoOrm.Models;
 
 namespace XpoOrm.Services
 {
-    public class CustomerService : ICustomerService
+    public class ProductService : IProductService
     {
-        public Customer GetCustomerByOid(int Oid)
+        public Product GetProductByOid(int Oid)
         {
             using (UnitOfWork uow = new UnitOfWork())
             {
-                return uow.Query<Customer>().Where(c => c.Oid == Oid).FirstOrDefault();
+                return uow.Query<Product>().Where(c => c.Oid == Oid).FirstOrDefault();
 
             }
         }
 
-        public Task<Customer> GetCustomerByOidAsync(int Oid)
+        public Task<Product> GetProductByOidAsync(int Oid)
         {
             using (UnitOfWork uow = new UnitOfWork())
             {
-                return Task.FromResult<Customer>(uow.Query<Customer>().Where(c => c.Oid == Oid).FirstOrDefault());
+                return Task.FromResult<Product>(uow.Query<Product>().Where(c => c.Oid == Oid).FirstOrDefault());
 
             }
         }
 
-        public IEnumerable<Customer> GetCustomers()
+        public IEnumerable<Product> GetProducts()
         {
             using (UnitOfWork uow = new UnitOfWork())
             {
-                return uow.Query<Customer>().ToList();
+                return uow.Query<Product>().ToList();
 
             }
         }

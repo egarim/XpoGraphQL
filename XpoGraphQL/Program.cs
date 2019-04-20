@@ -26,14 +26,21 @@ namespace XpoGraphQL
 
             UnitOfWork UoW = new UnitOfWork();
 
-            if (!UoW.Query<Customer>().Any())
+            if (!UoW.Query<Product>().Any())
             {
-                Customer JoseManuel = new Customer(UoW) { Name = "Jose Manuel Ojeda" ,Address="Sain Petersburg"};
-                Customer Oscar = new Customer(UoW) { Name = "Oscar", Address = "El Salvador" };
-                Customer Pedro = new Customer(UoW) { Name = "Pedro" };
-                UoW.CommitChanges();
-            }
 
+                Category BestFoodInTheWorld = new Category(UoW) { Code = "001", Name = "Best food in the world" };
+
+                Category HealtyFood = new Category(UoW) { Code = "002", Name = "Healty Food" };
+
+                Product Hamburger = new Product(UoW) { Name = "Rocco's hamburger", Description= "is a cheeseburger with cheese inside the meat instead of on top, resulting in a melted core of cheese.", Code="001" ,Category= BestFoodInTheWorld };
+                Product Pizza = new Product(UoW) { Name = "Pizza", Description= "Pizza Margherita is a typical Neapolitan pizza, made with San Marzano tomatoes, mozzarella fior di latte, fresh basil, salt and extra-virgin olive oil", Code="002",Category= BestFoodInTheWorld };
+                Product Tacos = new Product(UoW) { Name = "Tacos", Description= "Carne Asada Tacos. Carne asada tacos are delicious, flank steak tacos with a few simple ingredients and tons of flavor", Code="003",Category= BestFoodInTheWorld };
+
+
+                Product Salad = new Product(UoW) { Name = "Salad", Description = "Just a salad", Code = "004", Category = HealtyFood };
+            }
+            UoW.CommitChanges();
             CreateWebHostBuilder(args).Build().Run();
             
         }

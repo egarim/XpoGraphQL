@@ -24,16 +24,19 @@ namespace XpoGraphQL
         {
 
 
+
             services.AddSingleton<ICategoryService, CategoryService>();
             services.AddSingleton<CategoryType>();
-            services.AddSingleton<CategoryQuery>();
-            services.AddSingleton<CategorySchema>();
+         
 
 
             services.AddSingleton<IProductService, ProductService>();
             services.AddSingleton<ProductType>();
-            services.AddSingleton<ProductsQuery>();
-            services.AddSingleton<ProductSchema>();
+
+
+
+            services.AddSingleton<Queries>();
+            services.AddSingleton<MainSchema>();
 
 
           
@@ -71,8 +74,8 @@ namespace XpoGraphQL
 
                 // use graphiQL middleware at default url /graphiql
 
-                app.UseGraphQLWebSockets<ProductSchema>("/graphql");
-                app.UseGraphQL<ProductSchema>();
+                app.UseGraphQLWebSockets<MainSchema>("/graphql");
+                app.UseGraphQL<MainSchema>();
 
 
                 //app.UseGraphQLWebSockets<CategorySchema>("/graphql");

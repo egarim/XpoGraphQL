@@ -6,10 +6,9 @@ using System.Text;
 
 namespace XpoOrm.Schema
 {
-    public class ProductSchema:GraphQL.Types.Schema
+    public class MainSchema : GraphQL.Types.Schema
     {
-       
-        public ProductSchema(ProductsQuery query,IDependencyResolver dependencyResolver) : base(dependencyResolver)
+        public MainSchema(Queries query, IDependencyResolver dependencyResolver) : base(dependencyResolver)
         {
             Query = query;
             DependencyResolver = dependencyResolver;

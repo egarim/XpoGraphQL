@@ -11,8 +11,6 @@ namespace XpoOrm.Schema
             Field(c => c.Oid);
             Field(c => c.Name);
             Field(c => c.Code);
-
-
         }
     }
 }

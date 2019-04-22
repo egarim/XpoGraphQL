@@ -7,14 +7,14 @@ using XpoOrm.Services;
 
 namespace XpoOrm.Schema
 {
-    public class ProductsQuery: ObjectGraphType<Object>
+    public class Queries : ObjectGraphType<Object>
     {
-        public ProductsQuery(IProductService IProductService,ICategoryService ICategoryService)
+        public Queries(IProductService IProductService, ICategoryService ICategoryService)
         {
             this.Name = "Queries";
             Field<ListGraphType<ProductType>>("Products", resolve: context => IProductService.GetProducts());
 
-            Field<ListGraphType<CategoryType>>("CategoriesList", resolve: context => ICategoryService.GetCategories());
+            Field<ListGraphType<CategoryType>>("Categories", resolve: context => ICategoryService.GetCategories());
         }
     }
 }

@@ -23,8 +23,6 @@ namespace XpoGraphQL
         public void ConfigureServices(IServiceCollection services)
         {
 
-
-
             services.AddSingleton<ICategoryService, CategoryService>();
             services.AddSingleton<CategoryType>();
          
@@ -32,7 +30,6 @@ namespace XpoGraphQL
 
             services.AddSingleton<IProductService, ProductService>();
             services.AddSingleton<ProductType>();
-
 
 
             services.AddSingleton<Queries>();

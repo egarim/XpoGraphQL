@@ -33,9 +33,21 @@ namespace XpoGraphQL
 
                 Category HealtyFood = new Category(UoW) { Code = "002", Name = "Healty Food" };
 
-                Product Hamburger = new Product(UoW) { Name = "Rocco's hamburger", Description= "is a cheeseburger with cheese inside the meat instead of on top, resulting in a melted core of cheese.", Code="001" ,Category= BestFoodInTheWorld };
-                Product Pizza = new Product(UoW) { Name = "Pizza", Description= "Pizza Margherita is a typical Neapolitan pizza, made with San Marzano tomatoes, mozzarella fior di latte, fresh basil, salt and extra-virgin olive oil", Code="002",Category= BestFoodInTheWorld };
-                Product Tacos = new Product(UoW) { Name = "Tacos", Description= "Carne Asada Tacos. Carne asada tacos are delicious, flank steak tacos with a few simple ingredients and tons of flavor", Code="003",Category= BestFoodInTheWorld };
+                Product Hamburger = new Product(UoW);
+                Hamburger.Name = "Rocco's hamburger";
+                Hamburger.Description = "is a cheeseburger with cheese inside the meat instead of on top, resulting in a melted core of cheese.";
+                Hamburger.Code = "001";
+                Hamburger.Category = BestFoodInTheWorld;
+                Product Pizza = new Product(UoW);
+                Pizza.Name = "Pizza";
+                Pizza.Description = "Pizza Margherita is a typical Neapolitan pizza, made with San Marzano tomatoes, mozzarella fior di latte, fresh basil, salt and extra-virgin olive oil";
+                Pizza.Code = "002";
+                Pizza.Category = BestFoodInTheWorld;
+                Product Tacos = new Product(UoW);
+                Tacos.Name = "Tacos";
+                Tacos.Description = "Carne Asada Tacos. Carne asada tacos are delicious, flank steak tacos with a few simple ingredients and tons of flavor";
+                Tacos.Code = "003";
+                Tacos.Category = BestFoodInTheWorld;
 
 
                 Product Salad = new Product(UoW) { Name = "Salad", Description = "Just a salad", Code = "004", Category = HealtyFood };

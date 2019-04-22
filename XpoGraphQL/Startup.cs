@@ -25,8 +25,6 @@ namespace XpoGraphQL
 
             services.AddSingleton<ICategoryService, CategoryService>();
             services.AddSingleton<CategoryType>();
-         
-
 
             services.AddSingleton<IProductService, ProductService>();
             services.AddSingleton<ProductType>();
@@ -34,10 +32,6 @@ namespace XpoGraphQL
 
             services.AddSingleton<Queries>();
             services.AddSingleton<MainSchema>();
-
-
-          
-
 
             services.AddSingleton<IDependencyResolver>(
                 c => new FuncDependencyResolver(type => c.GetRequiredService(type)));
@@ -54,47 +48,19 @@ namespace XpoGraphQL
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            try
+            if (env.IsDevelopment())
             {
-                if (env.IsDevelopment())
-                {
-                    app.UseDeveloperExceptionPage();
-                }
-                app.UseDefaultFiles();
-                app.UseStaticFiles();
-
-                app.UseWebSockets();
-
-                //app.UseGraphQLWebSockets<CustomerType>();
-                //app.UseGraphQLHttp<CustomerSchema>();
-
-
-                // use graphiQL middleware at default url /graphiql
-
-                app.UseGraphQLWebSockets<MainSchema>("/graphql");
-                app.UseGraphQL<MainSchema>();
-
-
-                //app.UseGraphQLWebSockets<CategorySchema>("/graphql");
-                //app.UseGraphQL<CategorySchema>(@"/graphql/Category");
-
+                app.UseDeveloperExceptionPage();
             }
-            catch (Exception exception)
-            {
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
 
-                Debug.WriteLine(string.Format("{0}:{1}", "exception.Message", exception.Message));
-                if (exception.InnerException != null)
-                {
-                    Debug.WriteLine(string.Format("{0}:{1}", "exception.InnerException.Message", exception.InnerException.Message));
+            app.UseWebSockets();
 
-                }
-                Debug.WriteLine(string.Format("{0}:{1}", " exception.StackTrace", exception.StackTrace));
-            }
-           
-            //app.Run(async (context) =>
-            //{
-            //    await context.Response.WriteAsync("Hello World!");
-            //});
+            // use graphiQL middleware at default url /graphiql
+
+            app.UseGraphQLWebSockets<MainSchema>("/graphql");
+            app.UseGraphQL<MainSchema>();
         }
     }
 }

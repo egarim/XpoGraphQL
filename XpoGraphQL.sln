@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XpoGraphQL", "XpoGraphQL\XpoGraphQL.csproj", "{E869F4D5-473C-4899-AEC3-6FCFF6D3E72D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XpoGraphQL", "XpoGraphQL\XpoGraphQL.csproj", "{E869F4D5-473C-4899-AEC3-6FCFF6D3E72D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XpoOrm", "XpoOrm\XpoOrm.csproj", "{47686316-1AD9-4254-811F-8A16DACD03AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XpoOrm", "XpoOrm\XpoOrm.csproj", "{47686316-1AD9-4254-811F-8A16DACD03AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

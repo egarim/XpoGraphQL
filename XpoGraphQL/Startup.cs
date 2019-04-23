@@ -21,8 +21,8 @@ namespace XpoGraphQL
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
-        {
-
+        { 
+            //Registering types and services
             services.AddSingleton<ICategoryService, CategoryService>();
             services.AddSingleton<CategoryType>();
 
@@ -32,7 +32,7 @@ namespace XpoGraphQL
 
             services.AddSingleton<Queries>();
             services.AddSingleton<MainSchema>();
-
+            //registering GraphQL dependency resolver
             services.AddSingleton<IDependencyResolver>(
                 c => new FuncDependencyResolver(type => c.GetRequiredService(type)));
 

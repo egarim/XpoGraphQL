@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using XpoOrm.Schema;
 using XpoOrm.Services;
+using static XpoOrm.Schema.ProductType;
 
 namespace XpoGraphQL
 {
@@ -28,7 +29,8 @@ namespace XpoGraphQL
 
             services.AddSingleton<IProductService, ProductService>();
             services.AddSingleton<ProductType>();
-
+            services.AddSingleton<ProductInputType>();
+            services.AddSingleton<Mutations>();
 
             services.AddSingleton<Queries>();
             services.AddSingleton<MainSchema>();

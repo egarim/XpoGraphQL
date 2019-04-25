@@ -10,6 +10,20 @@ namespace XpoOrm.Services
 {
     public class ProductService : IProductService
     {
+        public Task<Product> CreateAsync(string Code, string Name, string Description)
+        {
+            using (UnitOfWork uow = new UnitOfWork())
+            {
+                Product newProduct = new Product(uow);
+                newProduct.Code = Code;
+                newProduct.Name = Name;
+                newProduct.Description = Description;
+                uow.CommitChanges();
+                return Task.FromResult(newProduct);
+              
+            }
+        }
+
         public Product GetProductByOid(int Oid)
         {
             using (UnitOfWork uow = new UnitOfWork())

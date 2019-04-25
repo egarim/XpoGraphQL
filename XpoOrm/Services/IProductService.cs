@@ -13,5 +13,6 @@ namespace XpoOrm.Services
         Task<Product> GetProductByOidAsync(int Oid);
 
         IEnumerable<Product> GetProducts();
+        Task<Product> CreateAsync(string Code, string Name, string Description);
     }
 }

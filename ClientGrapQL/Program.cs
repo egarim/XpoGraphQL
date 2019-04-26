@@ -57,6 +57,7 @@ namespace ClientGrapQL
             var ProductsMutationRequest = new GraphQLRequest();
             //for the mutation is important that the mutation name "createProduct" is in camel casing,
             //even when is defined on the server as "CreateProduct", the graphql specification requires it to be camel casing
+            //in the query below "CreateProduct" is the operation name
             ProductsMutationRequest.Query =
             @"mutation CreateProduct($product:ProductInput!)
                     {
@@ -66,7 +67,8 @@ namespace ClientGrapQL
                         description
                       }
                     }";
-
+            //Not necessary it the server can figure it out
+            ProductsMutationRequest.OperationName = "CreateProduct";
             ProductsMutationRequest.Variables = new
             {
                 //in the mutation the variable product is defined with lower case, because of the resolver we can use any case

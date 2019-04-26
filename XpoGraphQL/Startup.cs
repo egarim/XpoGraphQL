@@ -38,6 +38,11 @@ namespace XpoGraphQL
             services.AddSingleton<IDependencyResolver>(
                 c => new FuncDependencyResolver(type => c.GetRequiredService(type)));
 
+
+           
+
+           
+
             services.AddGraphQL(options =>
             {
                 options.EnableMetrics = true;

@@ -8,6 +8,7 @@ namespace XpoOrm.Models
         public Product(Session session) : base(session)
         { }
 
+        bool discontinued;
         private Category category;
         private string description;
         private string code;
@@ -38,6 +39,12 @@ namespace XpoOrm.Models
         {
             get => category;
             set => SetPropertyValue(nameof(Category), ref category, value);
+        }
+        
+        public bool Discontinued
+        {
+            get => discontinued;
+            set => SetPropertyValue(nameof(Discontinued), ref discontinued, value);
         }
     }
 }

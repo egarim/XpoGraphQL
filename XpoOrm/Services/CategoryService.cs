@@ -33,7 +33,7 @@ namespace XpoOrm.Services
             }
         }
 
-        public Task<Category> GetCategoryByOidAsync(int Oid)
+        public Task<Category> GetCategoryByOidAsync(int? Oid)
         {
             using (UnitOfWork uow = new UnitOfWork())
             {

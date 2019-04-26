@@ -1,5 +1,8 @@
-﻿using GraphQL.Types;
+﻿using GraphQL.Conversion;
+using GraphQL.Introspection;
+using GraphQL.Types;
 using System;
+using System.Linq;
 using XpoOrm.Services;
 
 namespace XpoOrm.Schema
@@ -18,22 +21,27 @@ namespace XpoOrm.Schema
                     new QueryArgument<NonNullGraphType<ProductInputType>> { Name = STR_Product }),
                 resolve: context =>
                 {
+                    //here we can define an input type or just use dynamic as shown below
                     var ProductInput = context.GetArgument<ProductInput>(STR_Product);
+                    
+                    //reading the parameter and set it to a dynamic type
+                    //var ProductInputDynamic = context.GetArgument<dynamic>(STR_Product);
+
                     return ProductService.CreateAsync(ProductInput.Code, ProductInput.Name, ProductInput.Description);
-                    //return new ProductInputType();
+                    
                 }
             );
 
-            //FieldAsync<OrderType>(
-            //    "startOrder",
-            //    arguments: new QueryArguments(new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "orderId" }),
-            //    resolve: async context =>
-            //    {
-            //        var orderId = context.GetArgument<string>("orderId");
-            //        return await context.TryAsyncResolve(
-            //            async c => await orders.StartAsync(orderId));
-            //    }
-            //);
+            FieldAsync<ProductType>(
+                "discontinueProduct",
+                arguments: new QueryArguments(new QueryArgument<NonNullGraphType<IntGraphType>> { Name = "oid" }),
+                resolve: async context =>
+                {
+                    var oid = context.GetArgument<int>("oid");
+                    return await context.TryAsyncResolve(
+                        async c => await ProductService.DiscontinueProductAsync(oid));
+                }
+            );
         }
     }
 }

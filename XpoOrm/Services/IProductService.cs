@@ -10,6 +10,7 @@ namespace XpoOrm.Services
     public interface IProductService
     {
         Product GetProductByOid(int Oid);
+        Task<Product> DiscontinueProductAsync(int Oid);
         Task<Product> GetProductByOidAsync(int Oid);
 
         IEnumerable<Product> GetProducts();

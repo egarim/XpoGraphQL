@@ -9,7 +9,7 @@ namespace XpoOrm.Services
     public interface ICategoryService
     {
         Category GetCategoryByOid(int Oid);
-        Task<Category> GetCategoryByOidAsync(int Oid);
+        Task<Category> GetCategoryByOidAsync(int? Oid);
 
         IEnumerable<Category> GetCategories();
     }

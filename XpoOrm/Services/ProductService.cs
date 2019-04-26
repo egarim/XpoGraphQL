@@ -24,6 +24,21 @@ namespace XpoOrm.Services
             }
         }
 
+        public Task<Product> DiscontinueProductAsync(int Oid)
+        {
+
+            using (UnitOfWork uow = new UnitOfWork())
+            {
+                var Product = uow.Query<Product>().Where(c => c.Oid == Oid).FirstOrDefault();
+                if (Product != null)
+                {
+                    Product.Discontinued = true;
+                }
+                uow.CommitChanges();
+                return Task.FromResult<Product>(Product);
+            }
+        }
+
         public Product GetProductByOid(int Oid)
         {
             using (UnitOfWork uow = new UnitOfWork())

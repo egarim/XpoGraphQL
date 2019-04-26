@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XpoGraphQL", "XpoGraphQL\Xp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XpoOrm", "XpoOrm\XpoOrm.csproj", "{47686316-1AD9-4254-811F-8A16DACD03AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientGrapQL", "ClientGrapQL\ClientGrapQL.csproj", "{2FA48DAB-CADC-4D3F-89DE-FE0EE7F13873}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientGrapQL", "ClientGrapQL\ClientGrapQL.csproj", "{2FA48DAB-CADC-4D3F-89DE-FE0EE7F13873}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

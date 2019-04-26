@@ -18,8 +18,12 @@ namespace XpoGraphQL
         public static void Main(string[] args)
         {
             //HACK https://documentation.devexpress.com/XPO/119377/Getting-Started/Getting-Started-with-NET-Core
-            string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string connectionString = SQLiteConnectionProvider.GetConnectionString(Path.Combine(appDataPath, "myXpoApp.db"));
+            //string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            //string connectionString = SQLiteConnectionProvider.GetConnectionString(Path.Combine(appDataPath, "myXpoApp.db"));
+
+            
+            string connectionString = SQLiteConnectionProvider.GetConnectionString("myXpoApp.db");
+
             XpoDefault.DataLayer = XpoDefault.GetDataLayer(connectionString, AutoCreateOption.DatabaseAndSchema);
 
 

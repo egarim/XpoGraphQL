@@ -1,4 +1,5 @@
 ﻿using GraphQL;
+using GraphQL.Conversion;
 using GraphQL.Types;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ namespace XpoOrm.Schema
             Query = query;
             DependencyResolver = dependencyResolver;
             Mutation = mutations;
+            //this.FieldNameConverter = new CamelCaseFieldNameConverter();
+         
         }
     }
 }

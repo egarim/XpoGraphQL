@@ -6,6 +6,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ProductMutation.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ProductMutation.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="GraphQL.Client" Version="1.0.3" />
   </ItemGroup>
 
